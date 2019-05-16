@@ -1,6 +1,6 @@
 # -----------------ПАРАМЕТРЫ СКРИПТА----------------
 
-delimiter = ';'  # Разделитель колонок.
+separator = ';'  # Разделитель колонок.
 
 # Конфигурация соответствия номера колонки XML тэгу
 
@@ -9,7 +9,6 @@ columns_tags_map = {
     7: 'Category',
     8: 'TypeId',
     9: 'AdType',
-    100: 'DateBegin',
     1: 'ManagerName',
     2: 'ContactPhone',
     3: 'Region',
