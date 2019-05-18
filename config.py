@@ -1,6 +1,10 @@
+import os
+
 # -----------------ПАРАМЕТРЫ СКРИПТА----------------
 
-separator = ';'  # Разделитель колонок.
+delimiter = ';'  # Разделитель колонок.
+
+csv_encoding = 'windows-1251'  # Кодировка CSV файлов
 
 # Конфигурация соответствия номера колонки XML тэгу
 
@@ -21,12 +25,7 @@ columns_tags_map = {
     13: 'Images'
 }
 
-# XML шаблон
+csv_path = os.path.join(os.getcwd(), 'csv')  # Путь к папке с CSV
+xml_path = os.path.join(os.getcwd(), 'xml')  # Путь к папке с XML
 
-XML_template = '''
-<?xml version="1.0" encoding="utf-8"?>
-<Ads formatVersion="3" target="Avito.ru">
-    {body}
-</ads>    
-'''
 # --------------------------------------------------
