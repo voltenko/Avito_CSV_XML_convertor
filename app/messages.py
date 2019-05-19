@@ -3,7 +3,7 @@ import config
 
 def print_start_message():
     """Печатает стартовое сообщение с небольшой инструкциеей и информацией о параметрах приложения"""
-    columns_tags_map_str = '\n\t'.join([f'{n} {tag}' for n, tag in config.columns_tags_map.items()])
+    cells_str = '\n\t'.join([f'> {tag}' for tag in config.cells])
 
     start_message = f'''
         Привет! Сейчас я просканирую папку "csv" и попытаюсь конвертировать все найденные CSV, 
@@ -11,12 +11,8 @@ def print_start_message():
 
         Разделитель колонок - "{config.delimiter}".
         
-        Соответствие номера колонки (отсчёт с 0) XML тэгу:
-        ---------------------------
-        № | тэг
-        ---------------------------
-        {columns_tags_map_str}
-        ---------------------------
+        Файл должен содержать следующие колонки:
+        {cells_str}
     '''
     print(start_message)
 
