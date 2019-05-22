@@ -2,6 +2,7 @@ import sys
 import config
 import app.messages as messages
 import app.csv_reader as csv_reader
+import app.convertor as convertor
 import app.exceptions
 
 
@@ -19,8 +20,8 @@ def main():
         except app.exceptions.ValidationException as e:
             print(e.message)
             sys.exit(1)
-
-        print(doc.data)
+        else:
+            convertor.convert_csv_to_xml(doc)
 
 
 if __name__ == '__main__':
