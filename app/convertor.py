@@ -1,9 +1,9 @@
 import config
-import os
 import xml.etree.ElementTree as xml
 
 
 def convert_csv_to_xml(csv_doc):
+    """Коннвертация CSV в XML"""
     root = xml.Element('Ads', {'formatVersion': '3', 'target': 'Avito.ru'})
 
     for line in csv_doc.data:
@@ -25,13 +25,7 @@ def convert_csv_to_xml(csv_doc):
             else:
                 element.text = str(line[cell])
 
-    base_name = os.path.basename(csv_doc.name)
-    file_name = f'{config.xml_path}/{os.path.splitext(base_name)[0]}.xml'
-    result = f'<?xml version="1.0" encoding="{config.xml_encoding}"?>{str(xml.tostring(root).decode(config.xml_encoding))}'
-
-    with open(file_name, "w") as fh:
-        fh.write(result)
-
+    return f'<?xml version="1.0" encoding="{config.xml_encoding}"?>{str(xml.tostring(root).decode(config.xml_encoding))}'
 
 
 

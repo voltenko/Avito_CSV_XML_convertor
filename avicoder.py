@@ -1,4 +1,5 @@
 import sys
+import os
 import config
 import app.messages as messages
 import app.csv_reader as csv_reader
@@ -21,7 +22,12 @@ def main():
             print(e.message)
             sys.exit(1)
         else:
-            convertor.convert_csv_to_xml(doc)
+            base_name = os.path.basename(doc.name)
+            file_name = f'{config.xml_path}/{os.path.splitext(base_name)[0]}.xml'
+            result = convertor.convert_csv_to_xml(doc)
+
+            with open(file_name, "w") as fh:
+                fh.write(result)
 
 
 if __name__ == '__main__':

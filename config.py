@@ -3,6 +3,7 @@ import os
 # -----------------ПАРАМЕТРЫ СКРИПТА----------------
 
 delimiter = ';'  # Разделитель колонок.
+images_delimiter = ','  # Разделитель картинок.
 
 csv_encoding = 'windows-1251'  # Кодировка CSV файлов
 xml_encoding = 'utf-8'  # Кодировка XML файлов
